@@ -5,117 +5,121 @@ Tracking a budget in a spreadsheet has never worked for me. First of all, it’s
 
 ------------------------------------------------------------------------------------
 Features:
+---------
 
-Be able to test out all functionality without creating an account
+* Be able to test out all functionality without creating an account
 
-Create an account
+* Create an account
 
-Users can create an account
+	* Users can create an account
 
-The account should store minimal information about the person: username, password, name, email
+	* The account should store minimal information about the person: username, password, name, email
 
-Edit your account
+* Edit your account
 
-Change password, name, email
+	* Change password, name, email
 
-Be able to create a budget
+* Be able to create a budget
 
-Create new categories
+	* Create new spending categories
 
-Add existing categories
+		* Ex. Rent, Groceries, Entertainment, etc.
 
-Users can create several budgets and they can select which one to use for a particular month or year
+	* Add existing categories
 
-Edit a budget
+	* Users can create several budgets and they can select which one to use for a particular month or year
 
-Edit categories
+* Edit a budget
 
-Add new categories
+	* Edit categories
 
-Remove categories
+	* Add new categories
 
-Report expenses
+	* Remove categories
 
-Enter date, location, category, how paid for
+* Report expenses
 
-Be able to take a photo of a receipt
+	* Enter date, location, category, how paid for
 
-Edit expenses
+	* Take a photo of a receipt and link it with an expenditure
 
-Report income
+* Edit expenses
 
-Enter date, source, category
+* Report income
 
-Edit income
+	* Enter date, source, category
 
-Be able to record assets - savings, checking, credit, cash
+* Edit income
 
-Not linked to actual accounts
+* Be able to record assets - savings, checking, credit, cash
 
-Show only balance and transactions - can compare with your actual accounts (essentially like a checkbook)
+	* Not linked to actual accounts
 
-Expenses/Income should be subtracted from/added to these assets
+	* Show only balance and transactions - can compare with your actual accounts (essentially like a checkbook)
 
-Show a summary of the monthly budget and totals in each category so far
+	* Expenses/Income should be subtracted from/added to these assets
 
-Store a history of expected vs actual expenses/income so users can track how they are doing over an extended period of time
+* Show a summary of the monthly budget and totals in each category so far
 
-Daily budget
+* Store a history of expected vs actual expenses/income so users can track how they are doing over an extended period of time
 
-Weekly budget
+* Daily budget
 
-Yearly budget
+* Weekly budget
 
-One-time budget (such as books, tuition)
+* Yearly budget
 
-Can translate easily between daily, weekly, monthly, yearly budgets
+* One-time budget (such as books, tuition)
+
+* Can translate easily between daily, weekly, monthly, yearly budgets
 
 -----------------------------------------------------------------------
 Subset of Features to Implement:
+--------------------------------
 
-Be able to test out all functionality without creating an account
+* Be able to test out all functionality without creating an account
 
-Create an account
+* Create an account
 
-Users can create an account
+	* Users can create an account
 
-The account should store minimal information about the person: username, password, name, email
+	* The account should store minimal information about the person: username, password, name, email
 
-Edit your account
+* Edit your account
 
-Change password, name, email
+	* Change password, name, email
 
-Be able to create a budget
+* Be able to create a budget
 
-Create new categories with the amount the user specifies
+	* Create new categories with the amount the user specifies
 
-Add existing categories
+	* Add existing categories
 
-Edit a budget
+* Edit a budget
 
-Edit categories
+	* Edit categories
 
-Add new categories
+	* Add new categories
 
-Remove categories
+	* Remove categories
 
-Report expenses
+* Report expenses
 
-Enter date, location, category, how paid for
+	* Enter date, location, category, how paid for
 
-Be able to take a photo of a receipt
+	* Be able to take a photo of a receipt
 
-Edit expenses
+* Edit expenses
 
-Report income
+* Report income
 
-Enter date, source, category
+	* Enter date, source, category
 
-Edit income
+* Edit income
 
-Show a summary of income and expenses
+* Show a summary of income and expenses
 
-Show a summary of the monthly budget and totals in each category so far
+* Show a summary of the monthly budget and totals in each category so far
 
 --------------------------------------------------------------------------
 Architecture:
