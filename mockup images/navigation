@@ -1,0 +1,54 @@
+Navigation:
+
+Testing the site:
+- First the user will come to the start up page (shown in start-screen.jpg).
+- If they do not have an account they can click the Try It Out button, which will take them to the summary page (home-page-no-budget.jpg)
+- On the summary page, they have several options: to create a budget, to report income, or to report expenses. This is also what the user will view if they click the Try It Out button on the start up page.
+
+Creating an account:
+- First the user will come to the start up page (shown in start-screen.jpg).
+- If they do not have an account they can click a button to register for an account, which will take them to the account creation page (create-account.jpg)
+- From there they can click create and they are taken to the summary page (home-page-no-budget.jpg)
+- On the summary page, they have several options: to create a budget, to report income, or to report expenses. This is also what the user will view if they click the Try It Out button on the start up page.
+
+Signing in:
+- First the user will come to the start up page (shown in start-screen.jpg).
+- They can click the Sign In button and enter their login information
+- If they have a budget already, they will be taken to the summary page shown in home-page-with-budget.jpg. Otherwise they will be taken to the summary page shown in home-page-no-budget.jpg. On the summary page, they have several options: to create a budget, to report income, or to report expenses. This is also what the user will view if they click the Try It Out button on the start up page.
+
+Creating a budget:
+- The user will click the button to create a budget and be taken to the budget creation page (create-budget.jpg)
+- On the budget creation page, they can add categories (such as groceries, rent, etc...) and the amount to budget for each category
+- If they click create, it will save their budget and take them to the summary page (home-page-with-budget.jpg)
+- If they click Cancel it will immediately take them back to the summary page (home-page-no-budget.jpg or home-page-with-budget.jpg if they already have an active budget)
+
+Editing a budget:
+- The user must already have a budget for this option to be available
+- The user will click the button to edit a budget and be taken to the budget editing page (edit-budget.jpg)
+- On the budget creation page, they can change or delete existing categories, and/or add new ones
+- If they click Save Changes, it will save their budget and take them to the summary page (home-page-with-budget.jpg)
+- If they click Cancel, they will immediately be taken back to the summary page (home-page-with-budget.jpg)
+
+Reporting income:
+- The user will click the button to report income and be taken to the income reporting page (report-income.jpg)
+- The user then fills out the necessary information
+- If the user clicks Cancel, they will immediately be taken back to the summary page (home-page-with-budget.jpg)
+- If the user clicks Add, the income will be saved and the user will be taken back to the summary page
+- If the user checks the box to report another and then clicks Add, the income will be saved and the same page will be shown again.
+
+Editing income:
+- The user can click a button to edit income and be taken to a list of all reported income
+- They can choose which one they want to edit and be taken to a page just like reporting income, but there will be no report another checkbox and the Add button will say Save Changes
+- The user would be taken back to the main summary page
+
+Reporting expenses:
+- The user will click the button to report expenses and be taken to the expenses reporting page (report-expense.jpg)
+- The user then fills out the necessary information
+- If the user clicks Cancel, they will immediately be taken back to the summary page (home-page-with-budget.jpg)
+- If the user clicks Add, the expense will be saved and the user will be taken back to the summary page
+- If the user checks the box to report another and then clicks Add, the expense will be saved and the same page will be shown again.
+
+Editing expenses:
+- The user can click a button to edit expenses and be taken to a list of all reported expenses
+- They can choose which one they want to edit and be taken to a page just like reporting expenses, but there will be no report another checkbox and the Add button will say Save Changes
+- The user would be taken back to the main summary page
