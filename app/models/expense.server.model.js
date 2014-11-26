@@ -16,7 +16,7 @@ var ExpenseSchema = new Schema({
 	},
 	date: {
 		type: Date,
-		default: Date.now
+		default: Date.now,
 		required: 'Date cannot be blank'
 	},
 	location: {
