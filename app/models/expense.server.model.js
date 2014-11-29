@@ -22,12 +22,17 @@ var ExpenseSchema = new Schema({
 	location: {
 		type: String,
 		default: '',
-		trim: true,
+		trim: true
 	},
 	amount: {
 		type: Number,
 		default: 0,
 		required: 'Amount cannot be blank'
+	},
+	notes: {
+		type: String,
+		default: '',
+		trim: true
 	},
 	user: {
 		type: Schema.ObjectId,

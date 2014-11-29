@@ -1,0 +1,22 @@
+<section data-ng-controller="ExpensesController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="expense.date"></h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == expense.user._id">
+		<a class="btn btn-primary" href="/#!/expenses/{{expense._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			<!--Date: <span data-ng-bind="expense.date | date:'mediumDate'"></span>-->
+			Location: <span data-ng-bind="expense.location"></span>
+			Category: <span data-ng-bind="expense.category"></span>
+			Amount: <span data-ng-bind="expense.amount | currency"></span>
+		</em>
+	</small>
+	<p class="lead" data-ng-bind="expense.notes"></p>
+</section>

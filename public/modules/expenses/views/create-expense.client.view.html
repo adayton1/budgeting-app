@@ -1,0 +1,55 @@
+<section ng-controller="ExpensesController">
+	<div class="page-header">
+		<h1>Report Expense</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="expenseForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				
+				<div class="form-group" ng-class="{ 'has-error': expenseForm.date.$dirty && expenseForm.date.$invalid }">
+					<label class="control-label" for="date">Date</label>
+					<div class="controls">
+						<input name="date" type="date" data-ng-model="date" id="date" class="form-control" placeholder="12/31/2014" required>
+					</div>
+				</div>
+				
+				<div class="form-group" ng-class="{ 'has-error': expenseForm.location.$dirty && expenseForm.location.$invalid }">
+					<label class="control-label" for="location">Location</label>
+					<div class="controls">
+						<input name="location" type="text" data-ng-model="location" id="location" class="form-control" placeholder="Smith's">
+					</div>
+				</div>
+				
+				<div class="form-group" ng-class="{ 'has-error': expenseForm.category.$dirty && expenseForm.category.$invalid }">
+					<label class="control-label" for="category">Category</label>
+					<div class="controls">
+						<input name="category" type="select" data-ng-model="category" id="category" class="form-control" placeholder="Groceries" required>
+					</div>
+				</div>
+				
+				<div class="form-group" ng-class="{ 'has-error': expenseForm.amount.$dirty && expenseForm.amount.$invalid }">
+					<label class="control-label" for="amount">Amount $</label>
+					<div class="controls">
+						<input name="amount" type="number" data-ng-model="amount" id="amount" class="form-control" placeholder="15.99" required>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label" for="notes">Notes</label>
+					<div class="controls">
+						<textarea name="notes" data-ng-model="notes" id="content" class="form-control" cols="30" rows="10" placeholder="Notes"></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+</section>
