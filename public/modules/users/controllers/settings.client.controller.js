@@ -67,5 +67,10 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
+
+		// Cancel without saving changes
+		$scope.cancel = function() {
+			window.location = "/";
+		};
 	}
 ]);

@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
 /**
- * Module dependencies.
+ * Module dependencies
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Expense Schema
+ * Income Schema
  */
-var ExpenseSchema = new Schema({
+var IncomeSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
@@ -19,7 +19,7 @@ var ExpenseSchema = new Schema({
 		default: Date.now,
 		required: 'Date cannot be blank'
 	},
-	location: {
+	source: {
 		type: String,
 		default: '',
 		trim: true
@@ -29,15 +29,10 @@ var ExpenseSchema = new Schema({
 		default: 0,
 		required: 'Amount cannot be blank'
 	},
-	notes: {
-		type: String,
-		default: '',
-		trim: true
-	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
 	}
 });
 
-mongoose.model('Expense', ExpenseSchema);
+mongoose.model('Income', IncomeSchema);

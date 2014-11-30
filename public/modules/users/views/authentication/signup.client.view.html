@@ -24,10 +24,8 @@
 					<input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
 				</div>
 				<div class="text-center form-group">
-					<button type="submit" class="btn btn-large btn-primary">Create Account</button>
-					<button type="button" class="btn btn-large btn-primary">
-						<a href="/" class="show-signup">Cancel</a>
-					</button>
+					<button type="submit" class="btn btn-large btn-primary">Create</button>
+					<button type="button" class="btn btn-large btn-primary" ng-click="cancel()">Cancel</button>
 				</div>
 				<div data-ng-show="error" class="text-center text-danger">
 					<strong data-ng-bind="error"></strong>

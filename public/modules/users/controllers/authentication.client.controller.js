@@ -30,5 +30,10 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				$scope.error = response.message;
 			});
 		};
+
+		// Cancel without saving changes
+		$scope.cancel = function() {
+			window.location = "/";
+		};
 	}
 ]);
