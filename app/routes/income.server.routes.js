@@ -9,7 +9,7 @@ var income = require('../../app/controllers/income.server.controller');
 module.exports = function(app) {
 	// Income Routes
 	app.route('/income')
-		.get(income.lists)
+		.get(income.list)
 		.post(users.requiresLogin, income.create);
 
 	app.route('/income/:incomeId')

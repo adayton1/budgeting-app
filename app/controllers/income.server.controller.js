@@ -98,7 +98,7 @@ exports.incomeByID = function(req, res, next, id) {
 	Income.findById(id).populate('user', 'displayName').exec(function(err, incomeItem) {
 		if (err) return next(err);
 		if (!incomeItem) return next(new Error('Failed to load income item ' + id));
-		req.income = income;
+		req.income = incomeItem;
 		next();
 	});
 };

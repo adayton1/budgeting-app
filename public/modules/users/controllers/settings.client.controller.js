@@ -70,7 +70,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 
 		// Cancel without saving changes
 		$scope.cancel = function() {
-			window.location = "/";
+			window.location = '/';
 		};
 	}
 ]);

@@ -33,7 +33,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 
 		// Cancel without saving changes
 		$scope.cancel = function() {
-			window.location = "/";
+			window.location = '/';
 		};
 	}
 ]);
