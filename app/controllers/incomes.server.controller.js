@@ -3,21 +3,17 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose');
-var errorHandler = require('./errors.server.controller');
-var Income = mongoose.model('Income');
-var _ = require('lodash');
+var mongoose = require('mongoose'),
+	errorHandler = require('./errors.server.controller'),
+	Income = mongoose.model('Income'),
+	_ = require('lodash');
 
 /**
  * Create an income
  */
 exports.create = function(req, res) {
-	var income = new Income();
-
+	var income = new Income(req.body);
 	income.user = req.user;
-	income.date = req.date;
-	income.source = req.source;
-	income.amount = req.amount;
 
 	income.save(function(err) {
 		if (err) {
@@ -31,22 +27,19 @@ exports.create = function(req, res) {
 };
 
 /**
- * Show the current income item
+ * Show the current income
  */
 exports.read = function(req, res) {
 	res.json(req.income);
 };
 
 /**
- * Update an income item
+ * Update an income
  */
 exports.update = function(req, res) {
 	var income = req.income;
 
-	income.user = req.user;
-	income.date = req.date;
-	income.source = req.source;
-	income.amount = req.amount;
+	income = _.extend(income, req.body);
 
 	income.save(function(err) {
 		if (err) {
@@ -60,7 +53,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an income item
+ * Delete an income
  */
 exports.delete = function(req, res) {
 	var income = req.income;
@@ -77,16 +70,16 @@ exports.delete = function(req, res) {
 };
 
 /**
- * List income items
+ * List of Incomes
  */
 exports.list = function(req, res) {
-	Income.find().sort('-created').populate('user', 'displayName').exec(function(err, incomeItems) {
+	Income.find().sort('-created').populate('user', 'displayName').exec(function(err, incomes) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(incomeItems);
+			res.json(incomes);
 		}
 	});
 };
@@ -95,10 +88,10 @@ exports.list = function(req, res) {
  * Income middleware
  */
 exports.incomeByID = function(req, res, next, id) {
-	Income.findById(id).populate('user', 'displayName').exec(function(err, incomeItem) {
+	Income.findById(id).populate('user', 'displayName').exec(function(err, income) {
 		if (err) return next(err);
-		if (!incomeItem) return next(new Error('Failed to load income item ' + id));
-		req.income = incomeItem;
+		if (!income) return next(new Error('Failed to load income ' + id));
+		req.income = income;
 		next();
 	});
 };

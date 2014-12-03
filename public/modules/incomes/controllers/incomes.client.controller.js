@@ -1,22 +1,21 @@
 'use strict';
 
-angular.module('income').controller('IncomeController', ['$scope', '$stateParams', '$location', 'Authentication', 'Income',
-	function($scope, $stateParams, $location, Authentication, Income) {
+angular.module('incomes').controller('IncomesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Incomes',
+	function($scope, $stateParams, $location, Authentication, Incomes) {
 		$scope.authentication = Authentication;
 
 		$scope.create = function() {
-			var income = new Income({
+			var income = new Incomes({
 				date: this.date,
 				source: this.source,
-				amount: this.amount,
-				// user = this.user ?
+				amount: this.amount
 			});
 			income.$save(function(response) {
-				$location.path('income/' + response._id);
+				$location.path('incomes/' + response._id);
 
-				$scope.date = '';
+				$scope.date = null;
 				$scope.source = '';
-				$scope.amount = '';
+				$scope.amount = 0;
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -33,27 +32,27 @@ angular.module('income').controller('IncomeController', ['$scope', '$stateParams
 				}
 			} else {
 				$scope.income.$remove(function() {
-					$location.path('income');
+					$location.path('incomes');
 				});
 			}
 		};
 
 		$scope.update = function() {
-			var income = $scope.income;
+			var income = $scope.incomes;
 
 			income.$update(function() {
-				$location.path('income/' + income._id);
+				$location.path('incomes/' + income._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 		};
 
 		$scope.find = function() {
-			$scope.income = Income.query();
+			$scope.incomes = Incomes.query();
 		};
 
 		$scope.findOne = function() {
-			$scope.income-entry = Income.get({
+			$scope.income = Incomes.get({
 				incomeId: $stateParams.incomeId
 			});
 		};

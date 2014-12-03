@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Module dependencies
+ * Module dependencies.
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
@@ -22,7 +22,8 @@ var IncomeSchema = new Schema({
 	source: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		required: 'Source cannot be blank'
 	},
 	amount: {
 		type: Number,
