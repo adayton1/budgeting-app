@@ -22,7 +22,8 @@ var ExpenseSchema = new Schema({
 	location: {
 		type: String,
 		default: '',
-		trim: true
+		trim: true,
+		require: 'Location cannot be blank'
 	},
 	amount: {
 		type: Number,

@@ -12,13 +12,8 @@ var _ = require('lodash');
  * Create an expense
  */
 exports.create = function(req, res) {
-	var expense = new Expense();
-	
+	var expense = new Expense(req.body);
 	expense.user = req.user;
-	expense.date = req.date;
-	expense.location = req.location;
-	expense.category = req.category;
-	expense.amount = req.amount;
 
 	expense.save(function(err) {
 		if (err) {
@@ -44,10 +39,7 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
 	var expense = req.expense;
 	
-	expense.date = req.date;
-	expense.location = req.location;
-	expense.category = req.category;
-	expense.amount = req.amount;
+	expense = _.extend(expense, req.body);
 
 	expense.save(function(err) {
 		if (err) {

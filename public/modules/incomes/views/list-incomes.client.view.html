@@ -3,17 +3,19 @@
 		<h1>Incomes</h1>
 	</div>
 	<div class="list-group">
-		<a data-ng-repeat="income in incomes" data-ng-href="#!/incomes/{{income._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="income.created | date:'mediumDate'"></span>
-				by
-				<span data-ng-bind="income.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="income.date"></h4>
-			<p class="list-group-item-text" data-ng-bind="income.source"></p>
-			<p class="list-group-item-text" data-ng-bind="income.amount"></p>
-		</a>
+		<div data-ng-repeat="income in incomes" class="list-group-item">
+			<div class="pull-right" data-ng-show="authentication.user._id == income.user._id">
+				<a class="btn btn-primary" href="/#!/incomes/{{income._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" data-ng-click="remove();">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+			<h4 class="list-group-item-heading" data-ng-bind="income.date | date:'mediumDate'"></h4>
+			<p class="list-group-item-text">Source: {{income.source}}</p>
+			<p class="list-group-item-text">Amount: {{income.amount}}</p>
+		</div>
 	</div>
 	<div class="alert alert-warning text-center" data-ng-if="incomes.$resolved && !incomes.length">
 		No incomes yet, why don't you <a href="/#!/incomes/create">create one</a>?
