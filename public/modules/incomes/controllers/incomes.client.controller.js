@@ -38,7 +38,7 @@ angular.module('incomes').controller('IncomesController', ['$scope', '$statePara
 		};
 
 		$scope.update = function() {
-			var income = $scope.incomes;
+			var income = $scope.income;
 
 			income.$update(function() {
 				$location.path('incomes/' + income._id);
