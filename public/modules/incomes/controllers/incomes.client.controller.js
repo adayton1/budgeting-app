@@ -48,7 +48,16 @@ angular.module('incomes').controller('IncomesController', ['$scope', '$statePara
 		};
 
 		$scope.find = function() {
-			$scope.incomes = Incomes.query();
+			var incomes = Incomes.query(function() {
+				var scopeIncomes = [];
+				incomes.forEach(function(income, index, array) {
+					if (Authentication.user._id === income.user._id) {
+						scopeIncomes.push(income);
+					}
+				});
+				
+				$scope.incomes = scopeIncomes;
+			});
 		};
 
 		$scope.findOne = function() {

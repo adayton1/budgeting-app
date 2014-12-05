@@ -3,15 +3,23 @@
 		<h1>Expenses</h1>
 	</div>
 	<div class="list-group">
-		<a data-ng-repeat="expense in expenses" data-ng-href="#!/expenses/{{expense._id}}" class="list-group-item">
-			<h4 class="list-group-item-heading" data-ng-bind="expense.date"></h4>
-			<p class="list-group-item-text" data-ng-bind="expense.location"></p>
-			<p class="list-group-item-text" data-ng-bind="expense.category"></p>
-			<p class="list-group-item-text" data-ng-bind="expense.amount"></p>
-			<p class="list-group-item-text" data-ng-bind="expense.notes"></p>
-		</a>
+		<div data-ng-repeat="expense in expenses" class="list-group-item">
+			<div class="pull-right">
+				<a class="btn btn-primary" href="/#!/expense/{{expense._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" data-ng-click="remove(expense);">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+			<h4 class="list-group-item-heading" data-ng-bind="expense.date | date: 'mediumDate'"></h4>
+			<p class="list-group-item-text">Location: {{expense.location}}</p>
+			<p class="list-group-item-text">Category: {{expense.category}}</p>
+			<p class="list-group-item-text">Amount: ${{expense.amount}}</p>
+			<p class="list-group-item-text">Notes: {{expense.notes}}</p>
+		</div>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-if="expenses.$resolved && !expenses.length">
+	<div class="alert alert-warning text-center" data-ng-if="!expenses.length">
 		<a href="/#!/expenses/create">Report Expense</a>
 	</div>
 </section>

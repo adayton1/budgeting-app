@@ -4,11 +4,11 @@
 	</div>
 	<div class="list-group">
 		<div data-ng-repeat="income in incomes" class="list-group-item">
-			<div class="pull-right" data-ng-show="authentication.user._id == income.user._id">
+			<div class="pull-right">
 				<a class="btn btn-primary" href="/#!/incomes/{{income._id}}/edit">
 					<i class="glyphicon glyphicon-edit"></i>
 				</a>
-				<a class="btn btn-primary" data-ng-click="remove();">
+				<a class="btn btn-primary" data-ng-click="remove(income);">
 					<i class="glyphicon glyphicon-trash"></i>
 				</a>
 			</div>
@@ -17,7 +17,7 @@
 			<p class="list-group-item-text">Amount: {{income.amount}}</p>
 		</div>
 	</div>
-	<div class="alert alert-warning text-center" data-ng-if="incomes.$resolved && !incomes.length">
-		No incomes yet, why don't you <a href="/#!/incomes/create">create one</a>?
+	<div class="alert alert-warning text-center" data-ng-if="!incomes.length">
+		<a href="/#!/incomes/create">Report income</a>
 	</div>
 </section>
