@@ -11,7 +11,7 @@ angular.module('incomes').controller('IncomesController', ['$scope', '$statePara
 				amount: this.amount
 			});
 			income.$save(function(response) {
-				$location.path('incomes/' + response._id);
+				$location.path('incomes');
 
 				$scope.date = null;
 				$scope.source = '';
@@ -41,7 +41,7 @@ angular.module('incomes').controller('IncomesController', ['$scope', '$statePara
 			var income = $scope.income;
 
 			income.$update(function() {
-				$location.path('incomes/' + income._id);
+				$location.path('incomes');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

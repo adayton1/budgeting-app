@@ -13,10 +13,10 @@ angular.module('incomes').config(['$stateProvider',
 			url: '/incomes/create',
 			templateUrl: 'modules/incomes/views/create-income.client.view.html'
 		}).
-		state('viewIncome', {
-			url: '/incomes/:incomeId',
-			templateUrl: 'modules/incomes/views/view-income.client.view.html'
-		}).
+		// state('viewIncome', {
+		// 	url: '/incomes/:incomeId',
+		// 	templateUrl: 'modules/incomes/views/view-income.client.view.html'
+		// }).
 		state('editIncome', {
 			url: '/incomes/:incomeId/edit',
 			templateUrl: 'modules/incomes/views/edit-income.client.view.html'

@@ -1,0 +1,19 @@
+<section data-ng-controller="BudgetsController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Budgets</h1>
+	</div>
+	<div class="list-group">
+		<div data-ng-repeat="budget in budgets" class="list-group-item">
+			<div class="pull-right">
+				<a class="btn btn-primary" href="/#!/budgets/{{budget._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" data-ng-click="remove(budget);">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+			<h4 class="list-group-item-heading" data-ng-bind="budget.name"></h4>
+			<p class="list-group-item-next" data-ng-bind="budget.type"></p>
+		</div>
+	</div>
+</section>

@@ -13,7 +13,7 @@ angular.module('expenses').controller('ExpensesController', ['$scope', '$statePa
 				notes: this.notes
 			});
 			expense.$save(function(response) {
-				$location.path('expenses/' + response._id);
+				$location.path('expenses');
 
 				$scope.date = '';
 				$scope.location = '';
@@ -45,7 +45,7 @@ angular.module('expenses').controller('ExpensesController', ['$scope', '$statePa
 			var expense = $scope.expense;
 
 			expense.$update(function() {
-				$location.path('expenses/' + expense._id);
+				$location.path('expenses');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

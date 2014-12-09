@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose');
 var	Schema = mongoose.Schema;
+var budgetTypes = 'yearly monthly weekly'.split(' ');
 
 /**
  * Budget Schema
@@ -19,6 +20,11 @@ var BudgetSchema = new Schema({
 		default: '',
 		trim: true,
 		required: 'Name cannot be blank'
+	},
+	type: {
+		type: String,
+		enum: budgetTypes,
+		require: 'Type cannot be blank'
 	},
 	categories: {
 		type: [Schema.Types.Mixed],

@@ -17,6 +17,6 @@ module.exports = function(app) {
 		.put(users.requiresLogin, expenses.hasAuthorization, expenses.update)
 		.delete(users.requiresLogin, expenses.hasAuthorization, expenses.delete);
 
-	// Finish by binding the article middleware
+	// Finish by binding the expense middleware
 	app.param('expenseId', expenses.expenseByID);
 };
