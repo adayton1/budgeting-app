@@ -24,7 +24,7 @@ var BudgetSchema = new Schema({
 	type: {
 		type: String,
 		enum: budgetTypes,
-		require: 'Type cannot be blank'
+		required: 'Type cannot be blank'
 	},
 	categories: {
 		type: [Schema.Types.Mixed],
