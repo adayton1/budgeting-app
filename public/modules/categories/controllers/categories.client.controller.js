@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('categories').controller('CategoriesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Categories',
-	function($scope, $stateParams, $location, Authentication, Categories) {
+angular.module('categories').controller('CategoriesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Categories', 'Budgets',
+	function($scope, $stateParams, $location, Authentication, Categories, Budgets) {
 		$scope.authentication = Authentication;
 
 		$scope.create = function() {
@@ -11,7 +11,7 @@ angular.module('categories').controller('CategoriesController', ['$scope', '$sta
 				budgetId: this.budgetId
 			});
 			category.$save(function(response) {
-				$location.path('categories/' + response._id);
+				$location.path('budgets');
 
 				$scope.name = '';
 				$scope.budgetedAmount = '';
@@ -58,7 +58,7 @@ angular.module('categories').controller('CategoriesController', ['$scope', '$sta
 		};
 
 		$scope.getUserBudgets = function() {
-			$scope.budgets = [];
+			$scope.budgets = Budgets.query();
 		};
 	}
 ]);

@@ -25,8 +25,9 @@ var CategorySchema = new Schema({
 		required: 'Amount budgeted cannot be blank'
 	},
 	budgetId: {
-		type: Schema.ObjectId,
-		ref: 'Budget'
+		type: String,
+		default: '',
+		require: 'Must have a budget'
 	},
 	user: {
 		type: Schema.ObjectId,

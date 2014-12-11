@@ -23,11 +23,10 @@
 					<label class="control-label" for="budgetId">Select Budget</label>
 					<div class="controls">
 						<select name="budgetId" data-ng-model="budgetId" id="budgetId" class="form-control" placeholder="Budget ID" ng-init="getUserBudgets()" required>
-							<option ng-repeat="budget in budgets" value="budget._id">{{budget.name}}</option>
+							<option data-ng-repeat="budget in budgets" data-ng-value="budget._id">{{budget.name}}</option>
 						</select>
 					</div>
 				</div>
-
 				<div class="form-group">
 					<input type="submit" class="btn btn-default">
 				</div>

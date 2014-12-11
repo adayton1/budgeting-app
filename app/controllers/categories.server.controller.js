@@ -11,12 +11,8 @@ var mongoose = require('mongoose'),
 /**
  * Create a category
  */
-exports.create = function(req, res, budgetId) {
-	console.log(budgetId);
-	console.log(req.body);
-
+exports.create = function(req, res) {
 	var category = new Category(req.body);
-	category.budgetId = budgetId;
 	category.user = req.user;
 
 	category.save(function(err) {
