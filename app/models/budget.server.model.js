@@ -5,7 +5,8 @@
  */
 var mongoose = require('mongoose');
 var	Schema = mongoose.Schema;
-var budgetTypes = 'yearly monthly weekly'.split(' ');
+var budgetTypes = 'yearly monthly weekly daily'.split(' ');
+var budgetStates = 'active inactive'.split(' ');
 
 /**
  * Budget Schema
@@ -17,7 +18,6 @@ var BudgetSchema = new Schema({
 	},
 	name: {
 		type: String,
-		default: '',
 		trim: true,
 		required: 'Name cannot be blank'
 	},
@@ -26,9 +26,10 @@ var BudgetSchema = new Schema({
 		enum: budgetTypes,
 		required: 'Type cannot be blank'
 	},
-	categories: {
-		type: [Schema.Types.Mixed],
-		default: []
+	state: {
+		type: String,
+		enum: budgetStates,
+		default: 'active'
 	},
 	notes: {
 		type: String,

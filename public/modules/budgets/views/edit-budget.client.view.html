@@ -1,0 +1,62 @@
+<section data-ng-controller="BudgetsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>Edit Budget</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="budgetForm" class="form-horizontal" data-ng-submit="update(budgetForm.$valid)" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.name.$invalid}">
+					<label class="control-label" for="name">Name</label>
+					<div class="controls">
+						<input name="name" type="text" data-ng-model="budget.name" id="name" class="form-control" value="{{budget.name}}" required>
+					</div>
+					<div ng-show="submitted && budgetForm.name.$invalid" class="help-block">
+						<p ng-show="budgetForm.name.$error.required" class="text-danger">Name is required</p>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.type.$invalid}">
+					<label class="control-label" for="type">Type</label>
+					<div class="controls">
+						<select name="type" data-ng-model="type" id="type" class="form-control" value="{{budget.type}}" required>
+							<option value="yearly">Yearly</option>
+							<option value="monthly">Monthly</option>
+							<option value="weekly">Weekly</option>
+							<option value="daily">Daily</option>
+						</select>
+					</div>
+					<div ng-show="submitted && budgetForm.type.$invalid" class="help-block">
+						<p ng-show="budgetForm.type.$error.required" class="text-danger">Type is required</p>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.notes.$invalid}">
+					<label class="control-label" for="notes">Notes</label>
+					<div class="controls">
+						<input name="notes" type="text" data-ng-model="budget.notes" id="notes" class="form-control" value="{{budget.notes}}" required>
+					</div>
+					<div ng-show="submitted && budgetForm.notes.$invalid" class="help-block">
+						<p ng-show="budgetForm.notes.$error.required" class="text-danger">Notes field is required</p>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.active.$invalid}">
+					<label class="control-label" for="active">Make this your active budget?</label>
+					<div class="controls">
+						<input type="checkbox" name="active" value="{{budget.active}}" data-ng-model="active" id="active" ng-true-value="active" ng-false-value="inactive" checked="true"></textarea>
+					</div>
+					<div ng-show="submitted && budgetForm.active.$invalid" class="help-block">
+						<p ng-show="budgetForm.active.$error.required" class="text-danger">Active field is required</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="submit" value="Update" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

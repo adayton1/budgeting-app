@@ -17,7 +17,7 @@
 					<div class="controls">
 						<select name="type" data-ng-model="type" id="type" class="form-control" placeholder="Type" required>
 							<option value="yearly">Yearly</option>
-							<option value="monthly" selected>Monthly</option>
+							<option value="monthly" selected="true">Monthly</option>
 							<option value="weekly">Weekly</option>
 							<option value="daily">Daily</option>
 						</select>
@@ -34,7 +34,7 @@
 				<div class="form-group">
 					<label class="control-label" for="active">Make this your active budget?</label>
 					<div class="controls">
-						<input type="checkbox" name="active" data-ng-model="active" id="active" checked></textarea>
+						<input type="checkbox" name="active" data-ng-model="active" id="active" ng-true-value="active" ng-false-value="inactive" checked="true"></textarea>
 					</div>
 				</div>
 

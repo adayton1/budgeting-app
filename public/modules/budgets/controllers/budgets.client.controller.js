@@ -7,15 +7,25 @@ angular.module('budgets').controller('BudgetsController', ['$scope', '$statePara
 		$scope.create = function() {
 			var budget = new Budgets({
 				name: this.name,
-				categories: this.categories,
+				type: this.type,
 				notes: this.notes
 			});
 			budget.$save(function(response) {
 				$location.path('budgets/' + response._id);
 
 				$scope.name = '';
-				$scope.categories = [];
+				$scope.type = '';
 				$scope.notes = '';
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		$scope.update = function() {
+			var budget = $scope.budget;
+
+			budget.$update(function() {
+				$location.path('budgets/' + budget._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -35,16 +45,6 @@ angular.module('budgets').controller('BudgetsController', ['$scope', '$statePara
 					$location.path('budgets');
 				});
 			}
-		};
-
-		$scope.update = function() {
-			var budget = $scope.budget;
-
-			budget.$update(function() {
-				$location.path('budgets/' + budget._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
 		};
 
 		$scope.find = function() {
