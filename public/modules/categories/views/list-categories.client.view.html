@@ -1,0 +1,20 @@
+<section data-ng-controller="CategoriesController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Categories</h1>
+	</div>
+	<div class="list-group">
+		<div data-ng-repeat="category in categories" class="list-group-item">
+			<div class="pull-right">
+				<a class="btn btn-primary" href="/#!/categories/{{category._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" data-ng-click="remove(category);">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+			<h4 class="list-group-item-heading" data-ng-bind="category.name"></h4>
+			<p class="list-group-item-text" data-ng-bind="category.budgetedAmount"></p>
+			<p class="list-group-item-text" data-ng-bind="category.budgetId"></p>
+		</div>
+	</div>
+</section>

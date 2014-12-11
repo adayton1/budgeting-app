@@ -1,0 +1,40 @@
+<section data-ng-controller="CategoriesController">
+	<div class="page-header">
+		<h1>New Category</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="categoryForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': categoryForm.name.$dirty && categoryForm.name.$invalid }">
+					<label class="control-label" for="name">Name</label>
+					<div class="controls">
+						<input name="name" type="text" data-ng-model="name" id="name" class="form-control" placeholder="Groceries" required>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error': categoryForm.budgetedAmount.$dirty && categoryForm.budgetedAmount.$invalid }">
+					<label class="control-label" for="budgetedAmount">Budget Amount</label>
+					<div class="controls">
+						<input name="budgetedAmount" type="number" data-ng-model="budgetedAmount" id="budgetedAmount" class="form-control" placeholder="150" required>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error': categoryForm.budgetId.$dirty && categoryForm.budgetId.$invalid }">
+					<label class="control-label" for="budgetId">Select Budget</label>
+					<div class="controls">
+						<select name="budgetId" data-ng-model="budgetId" id="budgetId" class="form-control" placeholder="Budget ID" ng-init="getUserBudgets()" required>
+							<option ng-repeat="budget in budgets" value="budget._id">{{budget.name}}</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
