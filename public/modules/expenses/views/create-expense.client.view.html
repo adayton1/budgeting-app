@@ -23,7 +23,9 @@
 				<div class="form-group" ng-class="{ 'has-error': expenseForm.category.$dirty && expenseForm.category.$invalid }">
 					<label class="control-label" for="category">Category</label>
 					<div class="controls">
-						<input name="category" type="select" data-ng-model="category" id="category" class="form-control" placeholder="Groceries" required>
+						<select name="category" data-ng-model="category" id="category" class="form-control" placeholder="Category" ng-init="getCategories()" required>
+							<option data-ng-repeat="category in categories" data-ng-value="category._id">{{category.name}}</option>
+						</select>
 					</div>
 				</div>
 				

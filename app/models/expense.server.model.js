@@ -35,7 +35,7 @@ var ExpenseSchema = new Schema({
 		default: '',
 		trim: true
 	},
-	categoryId: {
+	category: {
 		type: Schema.ObjectId,
 		ref: 'Category'
 	},

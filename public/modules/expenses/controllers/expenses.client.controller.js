@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('expenses').controller('ExpensesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Expenses',
-	function($scope, $stateParams, $location, Authentication, Expenses) {
+angular.module('expenses').controller('ExpensesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Expenses', 'Categories',
+	function($scope, $stateParams, $location, Authentication, Expenses, Categories) {
 		$scope.authentication = Authentication;
 
 		$scope.create = function() {
@@ -67,6 +67,27 @@ angular.module('expenses').controller('ExpensesController', ['$scope', '$statePa
 		$scope.findOne = function() {
 			$scope.expense = Expenses.get({
 				expenseId: $stateParams.expenseId
+			});
+		};
+
+		$scope.getCategories = function() {
+			Categories.query(function(categories) {
+				var scopeCategories = [];
+				categories.forEach(function(category, index, array) {
+					if (Authentication.user._id === category.user._id) {
+						scopeCategories.push(category);
+					}
+				});
+				
+				$scope.categories = scopeCategories;
+			});
+		};
+
+		$scope.getCategoryName = function(expense) {
+			Categories.get({
+				categoryId: expense.category
+			}, function(category) {
+				$scope.categoryName = category.name;
 			});
 		};
 	}

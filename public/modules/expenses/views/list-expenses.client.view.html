@@ -14,7 +14,7 @@
 			</div>
 			<h4 class="list-group-item-heading" data-ng-bind="expense.date | date: 'mediumDate'"></h4>
 			<p class="list-group-item-text">Location: {{expense.location}}</p>
-			<p class="list-group-item-text">Category: {{expense.category}}</p>
+			<p class="list-group-item-text" data-ng-init="getCategoryName(expense)">Category: {{categoryName}}</p>
 			<p class="list-group-item-text">Amount: ${{expense.amount}}</p>
 			<p class="list-group-item-text">Notes: {{expense.notes}}</p>
 		</div>
