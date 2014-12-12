@@ -52,7 +52,7 @@ angular.module('expenses').controller('ExpensesController', ['$scope', '$statePa
 		};
 
 		$scope.find = function() {
-			var expenses = Expenses.query(function() {
+			Expenses.query(function(expenses) {
 				var scopeExpenses = [];
 				expenses.forEach(function(expense, index, array) {
 					if (Authentication.user._id === expense.user._id) {

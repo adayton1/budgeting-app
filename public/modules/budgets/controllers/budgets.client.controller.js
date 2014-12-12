@@ -48,7 +48,16 @@ angular.module('budgets').controller('BudgetsController', ['$scope', '$statePara
 		};
 
 		$scope.find = function() {
-			$scope.budgets = Budgets.query();
+			Budgets.query(function(budgets) {
+				var scopeBudgets = [];
+				budgets.forEach(function(budget, index, array) {
+					if (Authentication.user._id === budget.user._id) {
+						scopeBudgets.push(budget);
+					}
+				});
+
+				$scope.budgets = scopeBudgets;
+			});
 		};
 
 		$scope.findOne = function() {

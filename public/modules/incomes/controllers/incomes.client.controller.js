@@ -48,7 +48,7 @@ angular.module('incomes').controller('IncomesController', ['$scope', '$statePara
 		};
 
 		$scope.find = function() {
-			var incomes = Incomes.query(function() {
+			Incomes.query(function(incomes) {
 				var scopeIncomes = [];
 				incomes.forEach(function(income, index, array) {
 					if (Authentication.user._id === income.user._id) {
