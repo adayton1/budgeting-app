@@ -24,6 +24,10 @@ var CategorySchema = new Schema({
 		default: 0,
 		required: 'Amount budgeted cannot be blank'
 	},
+	spent: {
+		type: Number,
+		default: 0
+	},
 	budgetId: {
 		type: String,
 		default: '',
