@@ -1,10 +1,14 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Budgets', 'Incomes', 'Expenses', 'Categories',
-	function($scope, Authentication, Budgets, Incomes, Expenses, Categories) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Budgets', 'Categories',
+	function($scope, Authentication, Budgets, Categories) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
+
+		if ($scope.authentication.user) {
+			$scope.loggedIn = true;
+		}
 
 		$scope.init = function() {
 			Budgets.query(function(budgets) {
@@ -15,28 +19,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 					}
 				});
 				$scope.activeBudget = activeBudget;
-			});
-
-			Incomes.query(function(incomes) {
-				var scopeIncomes = [];
-				incomes.forEach(function(income, index, array) {
-					if (Authentication.user._id === income.user._id) {
-						scopeIncomes.push(income);
-					}
-				});
-				
-				$scope.incomes = scopeIncomes;
-			});
-
-			Expenses.query(function(expenses) {
-				var scopeExpenses = [];
-				expenses.forEach(function(expense, index, array) {
-					if (Authentication.user._id === expense.user._id) {
-						scopeExpenses.push(expense);
-					}
-				});
-				
-				$scope.expenses = scopeExpenses;
 			});
 
 			Categories.query(function(categories) {
