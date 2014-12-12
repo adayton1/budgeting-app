@@ -11,7 +11,7 @@ angular.module('categories').controller('CategoriesController', ['$scope', '$sta
 				budgetId: this.budgetId
 			});
 			category.$save(function(response) {
-				$location.path('budgets');
+				$location.path('categories');
 
 				$scope.name = '';
 				$scope.budgetedAmount = '';

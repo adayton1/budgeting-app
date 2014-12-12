@@ -1,52 +1,39 @@
-<section data-ng-controller="BudgetsController" data-ng-init="findOne()">
+<section data-ng-controller="CategoriesController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>Edit Budget</h1>
+		<h1>Edit Category</h1>
 	</div>
 	<div class="col-md-12">
-		<form name="budgetForm" class="form-horizontal" data-ng-submit="update(budgetForm.$valid)" novalidate>
+		<form name="categoryForm" class="form-horizontal" data-ng-submit="update(categoryForm.$valid)" novalidate>
 			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.name.$invalid}">
+				<div class="form-group" ng-class="{ 'has-error' : submitted && categoryForm.name.$invalid}">
 					<label class="control-label" for="name">Name</label>
 					<div class="controls">
-						<input name="name" type="text" data-ng-model="budget.name" id="name" class="form-control" value="{{budget.name}}" required>
+						<input name="name" type="text" data-ng-model="category.name" id="name" class="form-control" value="{{category.name}}" required>
 					</div>
-					<div ng-show="submitted && budgetForm.name.$invalid" class="help-block">
-						<p ng-show="budgetForm.name.$error.required" class="text-danger">Name is required</p>
+					<div ng-show="submitted && categoryForm.name.$invalid" class="help-block">
+						<p ng-show="categoryForm.name.$error.required" class="text-danger">Name is required</p>
 					</div>
 				</div>
 
-				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.type.$invalid}">
-					<label class="control-label" for="type">Type</label>
+				<div class="form-group" ng-class="{ 'has-error' : submitted && categoryForm.budgetedAmount.$invalid}">
+					<label class="control-label" for="budgetedAmount">Budgeted Amount</label>
 					<div class="controls">
-						<select name="type" data-ng-model="type" id="type" class="form-control" value="{{budget.type}}" required>
-							<option value="yearly">Yearly</option>
-							<option value="monthly">Monthly</option>
-							<option value="weekly">Weekly</option>
-							<option value="daily">Daily</option>
+						<input name="budgetedAmount" type="number" data-ng-model="category.budgetedAmount" id="budgetedAmount" class="form-control" value="{{category.budgetedAmount}}" required>
+					</div>
+					<div ng-show="submitted && categoryForm.name.$invalid" class="help-block">
+						<p ng-show="categoryForm.name.$error.required" class="text-danger">Budgeted amount is required</p>
+					</div>
+				</div>
+
+				<div class="form-group" ng-class="{ 'has-error' : submitted && categoryForm.budgetId.$invalid}">
+					<label class="control-label" for="budgetId">Select Budget</label>
+					<div class="controls">
+						<select name="budgetId" data-ng-model="category.budgetId" id="budgetId" class="form-control" ng-init="getUserBudgets()" required>
+							<option data-ng-repeat="budget in budgets" data-ng-value="budget._id">{{budget.name}}</option>
 						</select>
 					</div>
-					<div ng-show="submitted && budgetForm.type.$invalid" class="help-block">
-						<p ng-show="budgetForm.type.$error.required" class="text-danger">Type is required</p>
-					</div>
-				</div>
-
-				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.notes.$invalid}">
-					<label class="control-label" for="notes">Notes</label>
-					<div class="controls">
-						<input name="notes" type="text" data-ng-model="budget.notes" id="notes" class="form-control" value="{{budget.notes}}" required>
-					</div>
-					<div ng-show="submitted && budgetForm.notes.$invalid" class="help-block">
-						<p ng-show="budgetForm.notes.$error.required" class="text-danger">Notes field is required</p>
-					</div>
-				</div>
-
-				<div class="form-group" ng-class="{ 'has-error' : submitted && budgetForm.active.$invalid}">
-					<label class="control-label" for="active">Make this your active budget?</label>
-					<div class="controls">
-						<input type="checkbox" name="active" value="{{budget.active}}" data-ng-model="active" id="active" ng-true-value="active" ng-false-value="inactive" checked="true"></textarea>
-					</div>
-					<div ng-show="submitted && budgetForm.active.$invalid" class="help-block">
-						<p ng-show="budgetForm.active.$error.required" class="text-danger">Active field is required</p>
+					<div ng-show="submitted && categoryForm.type.$invalid" class="help-block">
+						<p ng-show="categoryForm.type.$error.required" class="text-danger">Type is required</p>
 					</div>
 				</div>
 
