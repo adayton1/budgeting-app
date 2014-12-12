@@ -13,8 +13,7 @@
 				</a>
 			</div>
 			<h4 class="list-group-item-heading" data-ng-bind="category.name"></h4>
-			<p class="list-group-item-text" data-ng-bind="category.budgetedAmount"></p>
-			<p class="list-group-item-text" data-ng-bind="category.budgetId"></p>
+			<p>Budgeted Amount: <span data-ng-bind="category.budgetedAmount | currency"></span></p>
 		</div>
 	</div>
 </section>
